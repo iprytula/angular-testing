@@ -11,7 +11,7 @@ describe('UsersService', () => {
     service = TestBed.inject(UsersService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 
@@ -24,6 +24,14 @@ describe('UsersService', () => {
 
       service.addUser(user);
       expect(service.users).toEqual([user]);
+    });
+  });
+
+  describe("removeUser", () => {
+    it("should delete user", () => {
+      service.users = [{ id: "3", name: "Foo" }];
+      service.removeUser("3");
+      expect(service.users).toEqual([]);
     });
   });
 });

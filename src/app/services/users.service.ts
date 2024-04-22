@@ -12,5 +12,9 @@ export class UsersService {
     this.users.push(user);
   }
 
+  removeUser(id: string): void {
+    this.users = this.users.filter(user => user.id !== id);
+  }
+
   constructor() { }
 }
